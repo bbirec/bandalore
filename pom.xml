@@ -1,85 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
-    <groupId>com.cemerick</groupId>
-    <artifactId>bandalore</artifactId>
-    <version>0.0.4-SNAPSHOT</version>
-    <name>bandalore</name>
-    <description>A Clojure library for Amazon's Simple Queue Service (SQS).</description>
-    <url>http://github.com/cemerick/bandalore</url>
-
-    <parent>
-        <groupId>org.clojure</groupId>
-        <artifactId>pom.contrib</artifactId>
-        <version>0.0.20</version>
-    </parent>
-
-    <developers>
-        <developer>
-            <name>Chas Emerick</name>
-            <url>http://cemerick.com</url>
-            <email>cemerick@snowtide.com</email>
-            <timezone>-5</timezone>
-        </developer>
-    </developers>
-
-    <scm>
-        <connection>scm:git:git@github.com:cemerick/bandalore.git</connection>
-        <developerConnection>scm:git:git@github.com:cemerick/bandalore.git</developerConnection>
-        <url>git@github.com:cemerick/bandalore.git</url>
-    </scm>
-
-    <properties>
-        <clojure.version>1.4.0</clojure.version>
-    </properties>
-
-    <dependencies>
-        <dependency>
-            <groupId>com.amazonaws</groupId>
-            <artifactId>aws-java-sdk</artifactId>
-            <version>1.3.21.1</version>
-        </dependency>
-    </dependencies>
-
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>com.theoryinpractise</groupId>
-                <artifactId>clojure-maven-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <id>clojure-test</id>
-                        <configuration>
-                            <clojureOptions>-Daws.id=${aws.id} -Daws.secret-key=${aws.secret-key}</clojureOptions>
-                        </configuration>
-                    </execution>
-                </executions>
-                <configuration>
-                    <warnOnReflection>true</warnOnReflection>
-                </configuration>
-            </plugin>
-            <plugin>
-                <artifactId>maven-invoker-plugin</artifactId>
-                <version>1.5</version>
-                <configuration>
-                    <projectsDirectory>src/integration</projectsDirectory>
-                    <cloneProjectsTo>${project.build.directory}/integration</cloneProjectsTo>
-                    <pomIncludes>
-                        <pomInclude>*/pom.xml</pomInclude>
-                    </pomIncludes>
-                    <streamLogs>true</streamLogs>
-                    <goals><goal>clojure:test</goal></goals>
-                </configuration>
-                <executions>
-                    <execution>
-                        <id>integration-test</id>
-                        <goals>
-                            <goal>install</goal>
-                            <goal>run</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-        </plugins>
-    </build>
-
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>org.clojars.bbirec</groupId>
+  <artifactId>bandalore</artifactId>
+  <packaging>jar</packaging>
+  <version>0.0.3-SNAPSHOT</version>
+  <name>bandalore</name>
+  <description>A Clojure client library for Amazon's Simple Queue Service (SQS). Forked from https://github.com/cemerick/bandalore.</description>
+  <url>https://github.com/bbirec/bandalore</url>
+  <licenses>
+    <license>
+      <name>Eclipse Public License</name>
+      <url>http://www.eclipse.org/legal/epl-v10.html</url>
+    </license>
+  </licenses>
+  <scm>
+    <connection>scm:git:git://github.com/bbirec/bandalore.git</connection>
+    <developerConnection>scm:git:ssh://git@github.com/bbirec/bandalore.git</developerConnection>
+    <tag>d6aa7ea12e50927bee5cdbc6d2f7053fa7a883a7</tag>
+    <url>https://github.com/bbirec/bandalore</url>
+  </scm>
+  <build>
+    <sourceDirectory>src/main/clojure</sourceDirectory>
+    <testSourceDirectory>src/test/clojure</testSourceDirectory>
+    <resources>
+      <resource>
+        <directory>resources</directory>
+      </resource>
+    </resources>
+    <testResources>
+      <testResource>
+        <directory>dev-resources</directory>
+      </testResource>
+      <testResource>
+        <directory>resources</directory>
+      </testResource>
+    </testResources>
+    <directory>target</directory>
+    <outputDirectory>target/classes</outputDirectory>
+  </build>
+  <repositories>
+    <repository>
+      <id>central</id>
+      <url>http://repo1.maven.org/maven2</url>
+      <snapshots>
+        <enabled>true</enabled>
+      </snapshots>
+      <releases>
+        <enabled>true</enabled>
+      </releases>
+    </repository>
+    <repository>
+      <id>clojars</id>
+      <url>https://clojars.org/repo/</url>
+      <snapshots>
+        <enabled>true</enabled>
+      </snapshots>
+      <releases>
+        <enabled>true</enabled>
+      </releases>
+    </repository>
+  </repositories>
+  <dependencies>
+    <dependency>
+      <groupId>org.clojure</groupId>
+      <artifactId>clojure</artifactId>
+      <version>1.4.0</version>
+    </dependency>
+    <dependency>
+      <groupId>com.amazonaws</groupId>
+      <artifactId>aws-java-sdk</artifactId>
+      <version>1.3.26</version>
+    </dependency>
+  </dependencies>
 </project>
+
+<!-- This file was autogenerated by Leiningen.
+  Please do not edit it directly; instead edit project.clj and regenerate it.
+  It should not be considered canonical data. For more information see
+  https://github.com/technomancy/leiningen -->
